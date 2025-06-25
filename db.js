@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 // Define the MongoDB connection URL
-const mongoURL = 'mongodb://localhost:27017/hotels' // hotels is the database that we are creating
+//const mongoURL = 'mongodb://localhost:27017/hotels' // hotels is the database that we are creating
 //upon establishing connection, a db named hotels will be crated automatically
+
+// const mongoURL = process.env.MONGODB_URL_LOCAL;
+const mongoURL = process.env.MONGODB_URL;   // Online db connection - mongodb atlas
 
 // Set up MongoDB connection 
 

@@ -121,13 +121,13 @@ console.log(typeof json);
 
 
 const express = require('express')  // importing express pckg into our file
-
 const app = express();  // app var stores a blueprint of how will we build our website -> app var now has all the functionality to make a server
-
 const db = require('./db');
+require('dotenv').config();
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json()); //req.body
+const PORT = process.env.PORT || 3000; // ese define isiliye krte hain kyuki suppose yeh project online hosted h th uss machine ka jo port number hoga woh le lega warna in other case local so 3000
 
 const Person = require('./models/person'); // isi k through saare DB operns krenge
 const MenuItem = require('./models/MenuItem');
@@ -258,6 +258,6 @@ app.get('/', (req, res) => {
     app.use('/person', personRoutes);
     app.use('/menu', menuItemRoutes);
 
-    app.listen(3000, ()=>{
+    app.listen(PORT, ()=>{
         console.log('listening on port 3000');
     }) // server port no. - 3000 => this line tells that 3000 port pe humara server active h 
